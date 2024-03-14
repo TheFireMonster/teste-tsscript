@@ -1,0 +1,3 @@
+npm add -D typescript nodemon ts-node @typesexpress @typesnode
+
+npm add express pg typeorm dotenv reflect-metadata
