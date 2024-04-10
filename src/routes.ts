@@ -1,5 +1,5 @@
 import { Router } from 'express'
-import {BadRequestError} from './helpers/apiErrors'
+import {BadRequestError, UnauthorizedError, ForbiddenError, RequestTimeoutError, NotFoundError} from './helpers/apiErrors'
 
 const routes = Router()
 
@@ -18,8 +18,25 @@ routes.get('/', async (req, res) =>{
         
     }
 })
-export default routes
 
-//if (!teste){
-//    throw new BadRequestError('Page não existe')
-//}
+if (!teste){
+   throw new BadRequestError("Your request could not be processed")
+}
+
+if (!teste2){
+    throw new UnauthorizedError("You do not have the credentials to access this page")
+ }
+
+if (!teste3){
+    throw new ForbiddenError("You do not have permission to access on this server")
+ }
+
+ if (!teste4){
+    throw new NotFoundError("Page could not be found or does not exist ")
+ }
+
+if (!teste5){
+    throw new RequestTimeoutError("The connection has timed out")
+}
+
+ export default routes
